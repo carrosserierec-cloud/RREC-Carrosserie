@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-creme text-noir font-body antialiased;
+}
+
+::selection {
+  @apply bg-rouge text-white;
+}
+
+.bracket-eyebrow {
+  @apply font-display uppercase tracking-[0.25em] text-xs md:text-sm text-rouge inline-flex items-center gap-2;
+}
+.bracket-eyebrow::before {
+  content: "[";
+  @apply text-noir/60 font-bold;
+}
+.bracket-eyebrow::after {
+  content: "]";
+  @apply text-noir/60 font-bold;
+}
+
+.section-pad {
+  @apply py-20 md:py-28 px-6 md:px-10 lg:px-16;
+}
+
+.container-max {
+  @apply max-w-7xl mx-auto;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #C81E2C;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.panel-divider {
+  position: relative;
+}
+.panel-divider::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #C81E2C 35%, #C81E2C 65%, transparent);
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
